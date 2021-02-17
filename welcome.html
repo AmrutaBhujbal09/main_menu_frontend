@@ -1,0 +1,105 @@
+<!DOCTYPE html>    
+<html lang="en">
+    <head>
+        <title>
+            TABS DEMO
+        </title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="mystyle.css">
+       
+    </head>
+    
+
+   
+        
+    
+
+    <body>
+
+        <div id="header" onclick="window.location='http://google.com';">ICAT ARDE PUNE</div>
+        <div id="login" onclick="window.location='http://google.com';">LOGIN</div>
+        <div id="signup" onclick="window.location='http://google.com';">SIGN UP</div>
+        <div style="margin-top:-60px;padding:15px 15px 12px;font-size:15px;background-color:rgb(125, 189, 231);">
+            <form class="example" action='file:///C:/Users/Imran%20Shaikh/Desktop/front.html'>
+              <input type="text" placeholder="Search.." name="search" id="search" style="margin-top:-45px;margin-left:12px;">
+              <button type="submit" onclick="myFunction()"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+
+
+        <div class="tabs">
+           
+             <button class="tablink" onclick="newwin(this,'red')">All</button>  
+             <button class="tablink" onclick="newwindow(this,'brown')">NPTEL</button>
+             <button class="tablink" onclick="james(this,'light pink')" >JANE'S</button>
+             <button class="tablink" onclick="arma(this,'light blue')">ARMABLOG</button>
+
+             <button class="tablink" onclick="libsys()">LIBSYS</button>
+             <button class="tablink" onclick="dspace()">DSPACE</button>
+            <!--<button class="tablink" onclick="openTab(event,'NPTEL')">NPTEL</button>-->
+        </div>
+
+    
+
+
+
+
+
+        <!--add contents to these tabs-->
+
+        <div id="all" class="tabcontent">
+            <h3>Home</h3>
+        </div>
+
+        <!--to open tab content to tab is clicked uppon-->
+        <script type="text/javascript">
+            function newwin(){
+                window.open('front.html','_self','width=400,height=650');
+
+                //tabcon = document.getElementByClassName("tabcontent");
+            
+
+
+            }
+
+            function newwindow(){
+                
+                window.open('search_nptel_new.html','_self','width=400,height=650');
+            }
+
+            function james(){
+            
+                window.open('janes_HOMEPAGE.html','_self','width=400,height=650');
+            }
+
+            function arma(){
+                
+                window.open('welcome.html','_self','width=400,height=650','_self');
+            }
+
+            function libsys(){
+                
+                window.open('welcome.html','_self','width=400,height=650');
+            }
+
+            function dspace(){
+                
+                
+                window.open('welcome.html','_self','width=400,height=650');
+            }
+
+
+
+
+        </script>
+    </body>
+    
+    <h1>welcome to ALL</h1>
+
+    
+    
+<body class="bgwe">
+</body>
+
+</html>

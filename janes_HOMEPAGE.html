@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript - read JSON from URL</title>
+<link rel="stylesheet" href="mystyle.css">
+    
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    if ( $('body').scrollTop() > $('.section-a').position.top ) {
+         $('#headnev').removeClass('topnavbar');
+         $('#headnev').addClass('navbar-fixed-top');
+     }
+</script>
+</head>
+<style>
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 100%;
+	
+    
+}
+
+.styled-table thead tr {
+    background-color: #000000;
+    color: #ffffff;
+	position:fixed;
+	width:100%;
+	top:138px;
+	border-collapse: collapse;
+	
+   
+}
+
+.styled-table th{
+	padding: 12px 15px;
+	font-size:16px;
+	
+	
+}
+.styled-table td {
+    padding: 12px 15px;
+	text-align: center;
+	font-size:14px;
+	position:sticky;
+	width:20%;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+	text-align:center;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+	text-align:center;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+	text-align:center;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+	text-align:center;
+}
+
+.myForm{
+	color: #000000;
+	padding: 9px;
+	font-size: 17px;
+	position: relative;
+	overflow: auto;
+	z-index: 2;
+	top:-21px;
+	border: 1px;
+	margin-bottom:-49px;
+	
+}
+.navbar{
+    position:sticky;
+    width:100%;
+    z-index: 1000;
+    top:0;
+	background-color: #000000;
+}
+
+
+</style>
+
+
+<!--static tab code body-->
+<body>
+
+
+	<div id="header" onclick="window.location='http://google.com';">ICAT ARDE PUNE</div>
+	<div id="login" onclick="window.location='http://google.com';">LOGIN</div>
+	<div id="signup" onclick="window.location='http://google.com';">SIGN UP</div>
+
+	<div style="margin-top:-60px;padding:15px 15px 12px;font-size:15px;background-color:rgb(125, 189, 231);">
+		<form class="example" action='file:///C:/Users/Imran%20Shaikh/Desktop/front.html'>
+		  <input type="text" placeholder="Search.." name="search" id="search" style="margin-top:-45px;margin-left:12px;">
+		  <button type="submit" onclick="myFunction()"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
+
+
+	
+
+	<div class="tabs">
+	   
+		 <button class="tablink" onclick="newwin()">All</button>  
+		 <button class="tablink" onclick="newwindow()">NPTEL</button>
+		 <button class="tablink" onclick='james()'>JANE'S</button>
+		 <button class="tablink" onclick='arma()'>ARMABLOG</button>
+
+		 <button class="tablink" onclick="libsys()">LIBSYS</button>
+         <button class="tablink" onclick="dspace()">DSPACE</button>
+
+		<!--<button class="tablink" onclick="openTab(event,'NPTEL')">NPTEL</button>-->
+	</div>
+
+	<!--add contents to these tabs-->
+
+	<div id="all" class="tabcontent">
+		<h3>Home</h3>
+	</div>
+
+	<!--to open tab content to tab is clicked uppon-->
+	<script type="text/javascript">
+		function newwin(){
+			window.open('front.html','_self','width=400,height=650');
+			//tabcon = document.getElementByClassName("tabcontent");
+		
+		}
+
+		function newwindow(){
+			
+			window.open('search_nptel_new.html','_self','width=400,height=650');
+		}
+
+		function james(){
+		
+			window.open('janes_HOMEPAGE.html','_self','width=400,height=650');
+		}
+
+		function arma(){
+			
+			window.open('welcome.html','_self','width=400,height=650');
+		}
+
+		function libsys(){
+                
+             window.open('welcome.html','_self','width=400,height=650');
+        }
+
+        function dspace(){
+                
+            window.open('welcome.html','_self','width=400,height=650');
+        }
+
+
+
+	</script>
+
+
+</body>
+<!--sir's code body-->
+
+<body> 
+
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     
+	  <ul class="nav navbar-nav">
+      
+    </div>
+	
+	
+<form class="myForm" method="post" action=""><br>
+<select class name="country" id="country" style="max-width:15%;" >
+<option>Country</option>
+</select>
+<select name="section" id="section" style="max-width:15%;">
+<option>Section</option>
+</select>
+<select name= "general_title" id="general_title" style="max-width:15%;">
+<option>General_title</option>
+</select>
+<select name="status" id="status" style="max-width:15%;">
+<option>Status</option>
+</select>
+</form> 
+
+<!--remove search bar 
+
+<form class="navbar" >
+      <div class="input-group">
+         <input type="text" class="form-control" placeholder="Search" id="search">
+        <div class="input-group-btn">
+            <button type="submit" class="btn" onclick="myFunction()">Search</button>
+        </div>
+      </div>
+    </form>	
+-->
+    
+  </div>
+</nav>
+<script>
+function myFunction(){
+var data=document.getElementById("search").value;
+//console.log(data)
+localStorage.setItem("q",data)
+	//query='liza'
+	// API for get requests
+ window.location.href = "file:///C:/Users/Reshansh%20Jain/Desktop/working/final/janes_2.html";
+ show(data);
+}
+</script>
+<script>
+var var_status,var_country,var_section,var_general
+const status_url = 
+	"http://127.0.0.1:5000/status"; 
+const country_url = 
+	"http://127.0.0.1:5000/country"; 
+const section_url = 
+	"http://127.0.0.1:5000/section"; 
+const general_title_url = 
+	"http://127.0.0.1:5000/general_title";
+var data
+async function getcountry(url)
+ { 
+	const response = await fetch(url); 
+	data = await response.json(); 
+	// Display the list of array objects
+	console.log(data);
+	// Declare a new array
+	let newArray = [];
+	// Declare an empty object
+	let uniqueObject = {};
+	// Loop for the array elements
+	for (let i in data) {
+		// Extract the title
+		objTitle = data[i]['country'];
+
+		// Use the title as the index
+		uniqueObject[objTitle] = data[i];
+	}
+	// Loop to push unique object into array
+	for (i in uniqueObject) {
+		newArray.push(uniqueObject[i]);
+	}
+	// Display the unique objects
+	console.log(newArray);
+	//Coordinators
+	var dropdown = document.getElementById("country");
+	for (var i = 0; i < newArray.length; ++i) {
+		dropdown.innerHTML = dropdown.innerHTML +
+                '<option value="' + newArray[i]['id'] + '">' + newArray[i]['country'] + '</option>';		
+	}	
+	dropdown.onchange = function(){
+		var selectedString = dropdown.options[dropdown.selectedIndex].value;
+		//alert(selectedString);	
+		var strUser = dropdown.value;
+		//console.log(strUser)
+		var selValue = dropdown.options[dropdown.selectedIndex].text; // show selected text
+		var_country = selValue
+		console.log("before var_country",var_country)
+		fetchRecord(var_country);
+	}	
+	function fetchRecord(var_country) {
+	console.log('after var_country', var_country);	
+	fetch('http://127.0.0.1:5000/country_wise', {
+	method: 'POST',
+	CORS: 'Annonymous',
+	body: JSON.stringify({
+		country_var: var_country
+	}),
+	headers: {
+		'Content-Type': 'application/json; charset=UTF-8' 
+	}
+	}).then(function (response) {
+	if (response.ok) {
+	
+	//console.log('result:------------', response.json())
+	console.log('result:------------', response)
+	
+		return response.json();	
+	}
+	return Promise.reject(response);
+	}).then(function filter(var_country) {
+	console.log(var_country);
+	//coor = selValue;
+	//localStorage.setItem("q",coor);
+	//document.write(JSON.stringify(selValue));
+	show(var_country);
+	
+	
+	}).catch(function (error) {
+	console.warn('Something went wrong.', error);
+});
+}	
+}
+
+
+
+
+async function getsection(url) { 
+	const response = await fetch(url); 
+	data = await response.json(); 
+	// Display the list of array objects
+	console.log(data);
+	// Declare a new array
+	let newArray = [];
+	// Declare an empty object
+	let uniqueObject = {};
+	// Loop for the array elements
+	for (let i in data) {
+		// Extract the title
+		objTitle = data[i]['section'];
+
+		// Use the title as the index
+		uniqueObject[objTitle] = data[i];
+	}
+	// Loop to push unique object into array
+	for (i in uniqueObject) {
+		newArray.push(uniqueObject[i]);
+	}
+	// Display the unique objects
+	console.log(newArray);
+	//disciplineName
+	var dropdown = document.getElementById("section");
+	for (var i = 0; i < newArray.length; ++i) {
+		dropdown.innerHTML = dropdown.innerHTML +
+                '<option value="' + newArray[i]['id'] + '">' + newArray[i]['section'] + '</option>';		
+	}	
+	dropdown.onchange = function(){
+		var selectedString = dropdown.options[dropdown.selectedIndex].value;
+		//alert(selectedString);	
+		var strUser = dropdown.value;
+		//console.log(strUser)
+		var selValue = dropdown.options[dropdown.selectedIndex].text; // show selected text 
+		var_section = selValue
+		console.log('section var_section',var_section)
+		fetchRecord(var_section)
+
+	}	
+	function fetchRecord(var_section) {
+		console.log('after disciplineName', var_section);	
+		fetch('http://127.0.0.1:5000/section_wise', {
+		method: 'POST',
+		CORS: 'Annonymous',
+		body: JSON.stringify({
+			section: var_section
+		}),
+		headers: {
+			'Content-Type': 'application/json; charset=UTF-8' 
+		}
+	}).then(function (response) {
+		if (response.ok) {
+		
+		//console.log('result:------------', response.json())
+		console.log('result:------------', response)
+		
+			return response.json();	
+		}
+		return Promise.reject(response);
+	}).then(function filter(var_section) {
+		console.log(var_section);
+		//coor = selValue;
+		//localStorage.setItem("q",coor);
+		//document.write(JSON.stringify(selValue));
+		show(var_section);
+		
+		
+	}).catch(function (error) {
+		console.warn('Something went wrong.', error);
+	});
+	}
+}
+
+async function getstatus(url) { 
+	const response = await fetch(url); 
+	data = await response.json(); 
+	// Display the list of array objects
+	console.log(data);
+	// Declare a new array
+	let newArray = [];
+	// Declare an empty object
+	let uniqueObject = {};
+	// Loop for the array elements
+	for (let i in data) {
+		// Extract the title
+		objTitle = data[i]['status'];
+
+		// Use the title as the index
+		uniqueObject[objTitle] = data[i];
+	}
+	// Loop to push unique object into array
+	for (i in uniqueObject) {
+		newArray.push(uniqueObject[i]);
+	}
+	// Display the unique objects
+	console.log(newArray);
+	//subjectName
+	var dropdown = document.getElementById("status");
+	for (var i = 0; i < newArray.length; ++i) {
+		dropdown.innerHTML = dropdown.innerHTML +
+                '<option value="' + newArray[i]['id'] + '">' + newArray[i]['status'] + '</option>';		
+	}	
+	dropdown.onchange = function(){
+		var selectedString = dropdown.options[dropdown.selectedIndex].value;
+		//alert(selectedString);	
+		var strUser = dropdown.value;
+		//console.log(strUser)
+		var selValue = dropdown.options[dropdown.selectedIndex].text; // show selected text 
+		var_status = selValue
+		console.log(selValue)
+		fetchRecord(var_status)
+
+	}
+function fetchRecord(var_status) {
+		console.log('after disciplineName', var_status);	
+		fetch('http://127.0.0.1:5000/status', {
+		method: 'POST',
+		CORS: 'Annonymous',
+		body: JSON.stringify({
+			status: var_status
+		}),
+		headers: {
+			'Content-Type': 'application/json; charset=UTF-8' 
+		}
+	}).then(function (response) {
+		if (response.ok) {
+		
+		//console.log('result:------------', response.json())
+		console.log('result:------------', response)
+		
+			return response.json();	
+		}
+		return Promise.reject(response);
+	}).then(function filter(var_status) {
+		console.log(var_status);
+		//coor = selValue;
+		//localStorage.setItem("q",coor);
+		//document.write(JSON.stringify(selValue));
+		show(var_status);
+		
+		
+	}).catch(function (error) {
+		console.warn('Something went wrong.', error);
+	});
+	}	
+}
+
+async function getgeneral_title(url) { 
+	const response = await fetch(url); 
+	data = await response.json(); 
+	// Display the list of array objects
+	console.log(data);
+	// Declare a new array
+	let newArray = [];
+	// Declare an empty object
+	let uniqueObject = {};
+	// Loop for the array elements
+	for (let i in data) {
+		// Extract the title
+		objTitle = data[i]['general_title'];
+
+		// Use the title as the index
+		uniqueObject[objTitle] = data[i];
+	}
+	// Loop to push unique object into array
+	for (i in uniqueObject) {
+		newArray.push(uniqueObject[i]);
+	}
+	// Display the unique objects
+	console.log(newArray);
+	//filetype
+	var dropdown = document.getElementById("general_title");
+	for (var i = 0; i < newArray.length; ++i) {
+		dropdown.innerHTML = dropdown.innerHTML +
+                '<option value="' + newArray[i]['id'] + '">' + newArray[i]['general_title'] + '</option>';		
+	}	
+	dropdown.onchange = function(){
+		var selectedString = dropdown.options[dropdown.selectedIndex].value;
+		//alert(selectedString);	
+		var strUser = dropdown.value;
+		//console.log(strUser)
+		var selValue = dropdown.options[dropdown.selectedIndex].text; // show selected text 
+		var var_general = selValue
+		console.log(var_general)
+		fetchRecord(var_general)
+
+	}	
+	function fetchRecord(var_general) {
+		console.log('after disciplineName', var_general);	
+		fetch('http://127.0.0.1:5000/general_title_wise', {
+		method: 'POST',
+		CORS: 'Annonymous',
+		body: JSON.stringify({
+			general_title: var_general
+		}),
+		headers: {
+			'Content-Type': 'application/json; charset=UTF-8' 
+		}
+	}).then(function (response) {
+		if (response.ok) {
+		
+		//console.log('result:------------', response.json())
+		console.log('result:------------', response)
+		
+			return response.json();	
+		}
+		return Promise.reject(response);
+	}).then(function filter(var_general) {
+		console.log(var_general);
+		//coor = selValue;
+		//localStorage.setItem("q",coor);
+		//document.write(JSON.stringify(selValue));
+		show(var_general);
+		
+		
+	}).catch(function (error) {
+		console.warn('Something went wrong.', error);
+	});
+	}	
+}
+
+//calling functins
+getstatus(status_url); 
+getcountry(country_url); 
+getsection(section_url);
+getgeneral_title(general_title_url) 
+
+
+</script>  
+<script>
+
+var search=localStorage.getItem("q")
+const api_url = 
+	"http://127.0.0.1:5000/jsearch?q="+search; 
+var data
+// Defining async function 
+async function getapi(url) { 
+	
+	// Storing response 
+	const response = await fetch(url); 
+	
+	// Storing data in form of JSON 
+	data = await response.json(); 
+	console.log(data); 
+	if (response) { 
+		hideloader(); 
+	} 
+	show(data); 
+} 
+// Calling that async function 
+getapi(api_url); 
+
+// Function to hide the loader 
+function hideloader() { 
+	document.getElementById('loading').style.display = 'none'; 
+} 
+// Function to define innerHTML for HTML table 
+function show(data) { 
+	let tab = '';
+if (data && data.length > 0) {
+
+    tab = 
+		
+		`<tr >
+<thead>	
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		
+		<th>General_title</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		
+		<th>Section</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		
+		<th>Country</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		
+		<th>Company</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		
+		<th>Status</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		<th >&nbsp;</th>
+		
+		<th>Date</th><br>
+		</thead>
+		</tr>`; 
+	
+	// Loop to access all rows 
+	for (let r of data) { 
+		console.log(r)
+		tab += `<tr> 
+	
+	<td><a href= "${r.general_title + r.filepath}">${r.general_title}</td> 
+	<td>${r.section}</td> 
+	<td>${r.country}</td>
+	<td>${r.company}</td>
+	<td>${r.status}</td>
+	<td>${r.date}</td>
+	
+</tr>`; 
+	}
+	}
+	else{
+
+	console.log('myArray is empty.');
+	tab = `<p style="font-size:18px"> No Records Found For :- '${search}'</p>`;
+
+	}
+	 
+	// Setting innerHTML as tab variable 
+	document.getElementById("data").innerHTML = tab; 
+} 
+</script>
+<!-- Here a loader is created which 
+			loads till response comes -->
+		<div class="d-flex justify-content-center"> 
+			<div class="spinner-border"
+				role="status" id="loading"> 
+				<span class="sr-only" style="max-width:50%;">RESULTS NOT FOUND</span> 
+			</div> 
+		</div> 
+		<!-- table for showing data -->
+		<table id="data" class="styled-table"></table> 
+</body> 
+</html>
